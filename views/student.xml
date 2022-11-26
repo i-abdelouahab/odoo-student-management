@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="student_list_view" model="ir.ui.view">
+        <field name="name">student.list.view</field>
+        <field name="model">student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name ="id"/>
+                <field name="cne"/>
+                <field name="firstName"/>
+                <field name="lastName"/>
+                <field name="birthDate"/>
+                <field name="cin"/>
+                <field name="email"/>
+                <field name="phoneNumber"/>
+                <field name="paid"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="student_form_view" model="ir.ui.view">
+         <field name="name">student.form.view</field>
+            <field name="model">student</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name ="id"/>
+                        <field name="cne"/>
+                        <field name="firstName"/>
+                        <field name="lastName"/>
+                        <field name="birthDate"/>
+                        <field name="cin"/>
+                        <field name="email"/>
+                        <field name="phoneNumber"/>
+                        <field name="paid"/>
+                    </group>
+                </form>
+            </field>
+    </record>
+
+    <record id="action_student_registration" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">student</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <menuitem id="student_management_root" name="Student Management"/>
+    <menuitem id="student_management_sub_menu" name="Registration" parent="student_management_root"/>
+    <menuitem id="student_profile_menu" action="action_student_registration" name="Students" parent="student_management_sub_menu"/>
+</odoo>
